@@ -11,11 +11,13 @@ const BlogIndex = ({ data, location }) => {
   const posts = data.allMarkdownRemark.nodes
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <Seo title='All posts' />
-      <Bio />
-      <GistsList></GistsList>
-    </Layout>
+    <>
+      <Layout location={location} title={siteTitle}>
+        <Seo title='All posts' />
+        <Bio />
+        <GistsList></GistsList>
+      </Layout>
+    </>
   )
 }
 

@@ -7,6 +7,7 @@ export default function GistsList() {
       allFeedGists {
         nodes {
           link
+          id
           title
         }
       }
@@ -18,7 +19,7 @@ export default function GistsList() {
     <ul>
       {gists.map((gist) => (
         <li key={gist.link}>
-          <Link to={gist.link}>{gist.title}</Link>
+          <Link to={gist.id}>{gist.title}</Link>
         </li>
       ))}
     </ul>
