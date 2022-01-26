@@ -83,7 +83,7 @@ module.exports = {
                   date: node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [{ "content:encoded": node.html }],
+                  custom_elements: [{ 'content:encoded': node.html }],
                 })
               })
             },
@@ -106,8 +106,8 @@ module.exports = {
                 }
               }
             `,
-            output: "/rss.xml",
-            title: "Matt T Elliott",
+            output: '/rss.xml',
+            title: 'Matt T Elliott',
           },
         ],
       },
@@ -130,5 +130,19 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://gist.github.com/matttelliott.atom`,
+        name: `Gists`,
+        // Optional
+        // Read parser document: https://github.com/bobby-brennan/rss-parser#readme
+        // parserOption: {
+        //   customFields: {
+        //     item: ['itunes:duration'],
+        //   },
+        // },
+      },
+    },
   ],
 }
