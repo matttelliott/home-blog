@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
+import { SelectTheme } from '../components/select-theme'
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -20,8 +21,10 @@ const Layout = ({ location, title, children }) => {
     )
   }
 
+
   return (
     <div className='container' data-is-root-path={isRootPath}>
+      <SelectTheme name="select theme"></SelectTheme>
       <header className='global-header'>{header}</header>
       <main>{children}</main>
       <footer>
