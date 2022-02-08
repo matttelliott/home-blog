@@ -16,9 +16,8 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  const templatePath = path.resolve(`./src/templates/blog-post.js`)
+  const templatePath = path.resolve(`./src/templates/blog-post.tsx`)
 
-  console.log(templatePath, result)
   result.data.allFeedGists.nodes.forEach(node => {
     createPage({
       path: node.id,

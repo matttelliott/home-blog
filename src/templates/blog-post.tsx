@@ -1,24 +1,33 @@
 import * as React from 'react'
-import { graphql } from 'gatsby'
 import Layout from '../components/layout'
+import { Link } from 'gatsby'
 
 // import Bio from "../components/bio"
 // import Layout from "../components/layout"
 // import Seo from "../components/seo"
 
-const BlogPostTemplate = args => {
+const BlogPostTemplate = ({ pageContext, location }) => {
   // const post = data.markdownRemark
   // const siteTitle = data.site.siteMetadata?.title || `Title`
   // const { previous, next } = data
 
-  const node = args.pageContext.node
-  console.log(node)
-  const script = <script src={node.link + '.js'}></script>
-  console.log(script)
+  const { node } = pageContext
   return (
-    <Layout location={{ location: { pathname: 'path' } }} title='blog'>
-      <h1>hello world {script}</h1>
-      <div dangerouslySetInnerHTML={{__html:node.content}}></div>
+    <Layout location={location} title='blog'>
+      <h1>{node.title}</h1>
+      <h3>
+        <Link to='{node.link}'>
+          <img
+            height='32'
+            width='32'
+            src='https://github.githubassets.com/images/modules/logos_page/Octocat.png'
+            alt='GitHub'
+            title='GitHub'
+          />
+          Github
+        </Link>
+      </h3>
+      <div dangerouslySetInnerHTML={{ __html: node.content }}></div>
     </Layout>
   )
   // return (

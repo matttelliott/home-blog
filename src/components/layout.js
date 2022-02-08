@@ -21,19 +21,17 @@ const Layout = ({ location, title, children }) => {
   }
 
   return (
-    <>
-      <script src='https://gist.github.com/matttelliott/53baa36bfaef4f41baa134c6023d2629.js'></script>
-      <div className='global-wrapper' data-is-root-path={isRootPath}>
-        <header className='global-header'>{header}</header>
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href='https://www.gatsbyjs.com'>Gatsby</a>
-        </footer>
-      </div>
-    </>
+    <div className='container' data-is-root-path={isRootPath}>
+      <header className='global-header'>{header}</header>
+      <main>{children}</main>
+      <footer>
+        © {new Date().getFullYear()}, Built with
+        {` `}
+        <a href='https://www.gatsbyjs.com'>Gatsby</a>
+      </footer>
+    </div>
   )
 }
 
 export default Layout
+
