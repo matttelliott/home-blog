@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
-import { SelectTheme } from '../components/select-theme'
+import { SelectTheme } from '@matttelliott/react-select-theme'
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`

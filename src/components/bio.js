@@ -47,7 +47,7 @@ const Bio = () => {
           <p>{author.summary}</p>
           <p>
             <a href={`https://github.com/${social?.github || ``}`}>
-              You should follow me online
+              Follow me Online
             </a>
           </p>
         </div>
