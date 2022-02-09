@@ -1,21 +1,27 @@
 import * as React from 'react'
 
+const isBrowser = typeof window !== "undefined"
+
 const id = `select-theme-${Math.random().toString().replace('.', '')}`
 export const SelectTheme = React.forwardRef(
   (props, ref: React.Ref<HTMLSelectElement>) => {
+    if (!isBrowser)
+      return (
+        <select className='form-control' ref={ref} {...props}>
+          <option value={themes[0].url}>{themes[0].name}</option>
+        </select>
+      )
     const headElement = document.querySelector('head')
     const linkElement =
       headElement.querySelector(`#${id}`) || getAttachedLinkElement(headElement)
 
-    const selectTheme = (event) => {
-      console.log('selectTheme')
-      const href = event.target.value
-      linkElement.setAttribute('href', href)
-    }
-
-
     return (
-      <select className='form-control' ref={ref} {...props} onChange={(event) => selectTheme(event)}>
+      <select
+        className='form-control'
+        ref={ref}
+        {...props}
+        onChange={event => linkElement.setAttribute('href', event.target.value)}
+      >
         {themes.map(theme => (
           <option key={theme.url} value={theme.url}>
             {theme.name}
